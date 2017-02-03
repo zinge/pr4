@@ -15,6 +15,9 @@ class MvzController extends Controller
     public function index()
     {
         //
+        return view('mvz.index',[
+        $mvzs = Mvz::orderBy('mvz_desc','mvz_cod')->all();
+        ]);
     }
 
     /**
