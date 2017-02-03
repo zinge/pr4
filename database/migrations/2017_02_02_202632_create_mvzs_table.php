@@ -15,6 +15,8 @@ class CreateMvzsTable extends Migration
     {
         Schema::create('mvzs', function (Blueprint $table) {
             $table->increments('id');
+            $table->int('mvz_cod');
+            $table->char('mvz_desc',128);
             $table->timestamps();
         });
     }
