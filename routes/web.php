@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/mvz',  'MvzController@index');
+Route::post('/mvz',  'MvzController@store');

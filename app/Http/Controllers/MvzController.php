@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mvz;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class MvzController extends Controller
 {
@@ -38,6 +39,16 @@ class MvzController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'mvz_desc' => 'required|max:10',
+            'mvz_desc' => 'required|max:128',
+        ]);
+        Mvz::create([
+            'mvz_cod' => $request->mvz_cod,
+            'mvz_desc' => $request->mvz_desc,
+        ]);
+        return redirect('/mvz');
+
     }
 
     /**
