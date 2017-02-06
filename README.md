@@ -15,21 +15,6 @@ git remote add origin https://github.com/zinge/pr4.git
 git fetch
 git checkout origin/master -ft
 ```
-Install via [composer](http://getcomposer.org/), [twbs/bootstrap](http://getbootstrap.com/). [Thnx for idea](http://stackoverflow.com/questions/19118367/how-to-setup-bootstrap-after-downloading-via-composer).
-
-Edit composer.json, add 
-```
-"require":{
-  ...,
-  "twbs/bootstrap": "3.3.*"
-}
-
-"post-update-cmd": [
-  ...,
-  "ln -sfr vendor/twbs/bootstrap/dist public/bootstrap"
-]
-
-```
 and run `composer update`
 
 ## License
