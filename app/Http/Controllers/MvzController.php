@@ -16,7 +16,7 @@ class MvzController extends Controller
     public function index()
     {
         //
-        return view('mvz.index')->with('mvzs',
+        return view('mvzs.index')->with('mvzs',
         Mvz::orderBy('mvz_desc','mvz_cod')->get());
     }
 
@@ -40,14 +40,14 @@ class MvzController extends Controller
     {
         //
         $this->validate($request, [
-            'mvz_desc' => 'required|max:10',
+            'mvz_cod' => 'required|max:10',
             'mvz_desc' => 'required|max:128',
         ]);
         Mvz::create([
             'mvz_cod' => $request->mvz_cod,
             'mvz_desc' => $request->mvz_desc,
         ]);
-        return redirect('/mvz');
+        return redirect('/mvzs');
 
     }
 

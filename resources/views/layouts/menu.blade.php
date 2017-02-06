@@ -18,13 +18,13 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Справочники <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('/mvz') }}">МВЗ</a></li>
-                        <li><a href="{{ url('/addresse') }}">Адреса</a></li>
-                        <li><a href="{{ url('/phone') }}">Телефоны</a></li>
-                        <li><a href="{{ url('/equiptype') }}">Типы оборудования</a></li>
-                        <li><a href="{{ url('/coworker') }}">Сотрудники</a></li>
-                        <li><a href="{{ url('/phoneowner') }}">Телефоны(владельцы)</a></li>
-                        <li><a href="{{ url('/equip') }}">Оборудование</a></li>
+                        <li><a href="{{ url('/mvzs') }}">МВЗ</a></li>
+                        <li><a href="{{ url('/addresses') }}">Адреса</a></li>
+                        <li><a href="{{ url('/phones') }}">Телефоны</a></li>
+                        <li><a href="{{ url('/equiptypes') }}">Типы оборудования</a></li>
+                        <li><a href="{{ url('/coworkers') }}">Сотрудники</a></li>
+                        <li><a href="{{ url('/phoneowners') }}">Телефоны(владельцы)</a></li>
+                        <li><a href="{{ url('/equips') }}">Оборудование</a></li>
                     </ul>
                 </li>
             </ul>

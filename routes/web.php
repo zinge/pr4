@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mvz',  'MvzController@index');
+Route::get('/mvzs',  'MvzController@index');
 Route::post('/mvz',  'MvzController@store');
