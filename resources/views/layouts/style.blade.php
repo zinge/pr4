@@ -13,7 +13,6 @@ body {
 
 .container {
     text-align: center;
-    display: table-cell;
     vertical-align: middle;
 }
 
