@@ -17,6 +17,9 @@
                      Укажите описание и код нового элемента МВЗ
                 </div>
                 <div class="panel-body">
+                    <!-- display validation errors -->
+                    @include('common.errors')
+                    
                     <form action="{{ url('mvz') }}" method="post" class="form-horizontal">
                         {{ csrf_field() }}
                         <div class="form-group row">
