@@ -71,6 +71,8 @@ class MvzController extends Controller
     public function edit(Mvz $mvz)
     {
         //
+        return view('mvzs.edit')->with('mvz',
+        Mvz::find($mvz->id));
     }
 
     /**
@@ -94,5 +96,8 @@ class MvzController extends Controller
     public function destroy(Mvz $mvz)
     {
         //
+        Mvz::find($mvz->id)->delete();
+
+        return redirect('/mvzs');
     }
 }

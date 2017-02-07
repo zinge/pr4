@@ -5,7 +5,7 @@
 <title>Laravel && Bootstrap</title>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 <!-- Bootstrap -->
-<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{url('/')}}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

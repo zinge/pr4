@@ -46,34 +46,48 @@
     </div>
 
   @if (count($mvzs) > 0)
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Header</th>
-            <th>Header</th>
-            <th>Header</th>
-            <th>Header</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1,001</td>
-            <td>lorem</td>
-            <td>ipsum</td>
-            <td>dolor</td>
-            <td>sit</td>
-          </tr>
-          <tr>
-            <td>1,001</td>
-            <td>lorem</td>
-            <td>ipsum</td>
-            <td>dolor</td>
-            <td>sit</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Описание</th>
+                <th>Код</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($mvzs as $mvz)
+                <tr>
+                  <td>{{ $mvz->id }}</td>
+                  <td>{{ $mvz->mvz_desc }}</td>
+                  <td>{{ $mvz->mvz_cod }}</td>
+                  <td>
+                    <form action="{{url('mvz/' . $mvz->id)}}" method="post">
+                      {{ csrf_field() }}
+                      {{ method_field('delete') }}
+                      <button type="submit" id="del-mvz-{{$mvz->id}}" class="btn btn-danger">
+                        <i class="fa fa-btn fa-trash"></i>Удалить
+                      </button>
+                    </form>
+                  </td>
+                  <td>
+                    <form action="{{url('mvz/' . $mvz->id . '/edit')}}" method="get">
+                      {{ csrf_field() }}
+                      <button type="submit" id="edit-mvz-{{$mvz->id}}" class="btn btn-primary">
+                        <i class="fa fa-btn fa-edit"></i>Исправить
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              @endforeach  
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   @endif
 </div>
