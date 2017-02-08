@@ -85,6 +85,15 @@ class MvzController extends Controller
     public function update(Request $request, Mvz $mvz)
     {
         //
+        $this->validate($request, [
+            'mvz_cod' => 'required|max:10',
+            'mvz_desc' => 'required|max:128',
+        ]);
+        Mvz::find($mvz->id)->update([
+            'mvz_cod'=>$request->mvz_cod,
+            'mvz_desc'=>$request->mvz_desc,
+            ]);
+        return redirect('/mvzs');
     }
 
     /**
