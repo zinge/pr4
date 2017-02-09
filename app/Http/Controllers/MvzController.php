@@ -40,7 +40,7 @@ class MvzController extends Controller
     {
         //
         $this->validate($request, [
-            'mvz_cod' => 'required|numeric|max:10',
+            'mvz_cod' => 'required|numeric|max:21474836470',
             'mvz_desc' => 'required|max:128',
         ]);
         Mvz::create([
@@ -86,7 +86,7 @@ class MvzController extends Controller
     {
         //
         $this->validate($request, [
-            'mvz_cod' => 'required|numeric|max:10',
+            'mvz_cod' => 'required|integer|max:2147483647',
             'mvz_desc' => 'required|max:128',
         ]);
         $mvz->update([
