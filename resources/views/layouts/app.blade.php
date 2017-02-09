@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ config('app.locale') }}">
     <head>
     @include('layouts.header')
         <style>
-            @include('layouts.style')
+            @include('layouts.styles.default')
         </style>
     </head>
     <body>

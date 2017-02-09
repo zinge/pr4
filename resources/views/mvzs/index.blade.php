@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <button class="btn btn-primary" 
+    <button class="btn btn-primary"
           role="button"
-          data-toggle="collapse" 
+          data-toggle="collapse"
           href="#mvzAddForm"
           aria-expanded="false"
           aria-controls="mvzAddForm">
@@ -19,7 +19,7 @@
                 <div class="panel-body">
                     <!-- display validation errors -->
                     @include('common.errors')
-                    
+
                     <form action="{{ url('mvz') }}" method="post" class="form-horizontal">
                         {{ csrf_field() }}
                         <div class="form-group row">
@@ -83,7 +83,7 @@
                     </form>
                   </td>
                 </tr>
-              @endforeach  
+              @endforeach
             </tbody>
           </table>
         </div>
