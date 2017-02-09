@@ -17,7 +17,7 @@ class MvzController extends Controller
     {
         //
         return view('mvzs.index')->with('mvzs',
-        Mvz::orderBy('mvz_desc','mvz_cod')->get());
+        Mvz::get());
     }
 
     /**
@@ -40,7 +40,7 @@ class MvzController extends Controller
     {
         //
         $this->validate($request, [
-            'mvz_cod' => 'required|max:10',
+            'mvz_cod' => 'required|numeric|max:10',
             'mvz_desc' => 'required|max:128',
         ]);
         Mvz::create([
@@ -72,7 +72,7 @@ class MvzController extends Controller
     {
         //
         return view('mvzs.edit')->with('mvz',
-        Mvz::find($mvz->id));
+        $mvz);
     }
 
     /**
@@ -86,10 +86,10 @@ class MvzController extends Controller
     {
         //
         $this->validate($request, [
-            'mvz_cod' => 'required|max:10',
+            'mvz_cod' => 'required|numeric|max:10',
             'mvz_desc' => 'required|max:128',
         ]);
-        Mvz::find($mvz->id)->update([
+        $mvz->update([
             'mvz_cod'=>$request->mvz_cod,
             'mvz_desc'=>$request->mvz_desc,
             ]);
@@ -105,7 +105,7 @@ class MvzController extends Controller
     public function destroy(Mvz $mvz)
     {
         //
-        Mvz::find($mvz->id)->delete();
+        $mvz->delete();
 
         return redirect('/mvzs');
     }
