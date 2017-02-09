@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    С корабля Земля казалась сверкающим серпом, лежащим далеко внизу.
                 </div>
             </div>
         </div>
