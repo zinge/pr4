@@ -42,7 +42,8 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize",
-	    "ln -sfr vendor/twbs/bootstrap/dist public/bootstrap"
+	    "ln -sfr vendor/twbs/bootstrap/dist public/bootstrap",
+	    "ln -sfr vendor/twbs/bootstrap/docs/assets public/assets"
         ]
     },
     "config": {

@@ -20,3 +20,7 @@ Route::post('/mvz',  'MvzController@store');
 Route::get('/mvz/{mvz}/edit', 'MvzController@edit');
 Route::delete('/mvz/{mvz}', 'MvzController@destroy');
 Route::put('/mvz/{mvz}', 'MvzController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
