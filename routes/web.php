@@ -24,3 +24,11 @@ Route::put('/mvz/{mvz}', 'MvzController@update');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/roles',  'RoleController@index');
+Route::post('/role',  'RoleController@store');
+Route::get('/role/{role}/edit', 'RoleController@edit');
+Route::delete('/role/{role}', 'RoleController@destroy');
+Route::put('/role/{role}', 'RoleController@update');
+
+

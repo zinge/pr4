@@ -11,15 +11,36 @@ class roleSeed extends Seeder
      */
     public function run()
     {
-         DB::table('roles')->insert([
-            'roles_name' => 'root',
-            'roles_desc' => 'Defaul SU role'
+
+        DB::table('users')->insert([
+            'id' => '1',
+            'name' => 'zinge',
+            'email' => 'zinge@localhost',
+            'password' => bcrypt('P@ssw0rd')
+        ]);
+
+        DB::table('roles')->insert([
+            'id' => '1',
+            'role_name' => 'root',
+            'role_desc' => 'Defaul SU role'
         ]);
 
         DB::table('rolemembers')->insert([
-            'users_id' => '1',
-            'roles_id' => '1'
+            'user_id' => '1',
+            'role_id' => '1'
         ]);
+
+        DB::table('roles')->insert([
+            'id' => '2',
+            'role_name' => 'mvz_rw',
+            'role_desc' => 'MVZs RW rights'
+        ]);
+
+        DB::table('rolemembers')->insert([
+            'user_id' => '1',
+            'role_id' => '2'
+        ]);
+
 
     }
 }

@@ -38,8 +38,24 @@
                         <li><a href="{{ url('/equips') }}">Оборудование</a></li>
                     </ul>
                 </li>
-                @endif
+                    @if (Auth::user()->hasRole('root'))
+                      <ul class="nav navbar-nav">
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Разрешения <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Пользователи</a></li>
+                                <li><a href="{{ url('/roles') }}">Роли</a></li>
+                                <li><a href="{{ url('/rolemembers') }}">Права</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                      @endif
+                  @endif
             </ul>
+
+
+
+
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
