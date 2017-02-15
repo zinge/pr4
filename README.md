@@ -29,3 +29,7 @@ Look files database/seeds/roleSeed.php, edit if need, and seed from database
 ```
 composer dump-autoload
 artisan db:seed --class roleSeed
+```
+
+## License
+The licensed under the [MIT license](http://opensource.org/licenses/MIT).
