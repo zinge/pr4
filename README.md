@@ -17,5 +17,19 @@ git checkout origin/master -ft
 ```
 and run `composer update`
 
+## Make auth
+Simple in box auth laravel way say, this easy, use:
+```
+artisan make:auth
+```
+Okay, go this way.
+
+## Seed default admin
+Look files database/seeds/roleSeed.php, edit if need, and seed from database
+```
+composer dump-autoload
+artisan db:seed --class roleSeed
+```
+
 ## License
 The licensed under the [MIT license](http://opensource.org/licenses/MIT).
