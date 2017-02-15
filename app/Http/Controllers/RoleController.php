@@ -19,15 +19,8 @@ class RoleController extends Controller
     public function index()
     {
         //
-        $pageStructure=array(
-          array('role','collapse','table'),
-          array('Название','Описание'),
-          array('role_desc','role_name'),
-          array('text','text'),
-        );
-
-        return view('roles.index')->with('roles',
-        Role::get())->with('pageStructure', $pageStructure);
+        return view('roles.index')
+          ->with('roles', Role::get());
 
     }
 
@@ -72,6 +65,8 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         //
+        return view('roles.edit')->with('role',
+        $role);
     }
 
     /**
