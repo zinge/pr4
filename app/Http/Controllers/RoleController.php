@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Role;
 use App\User;
 
 class RoleController extends Controller
@@ -18,8 +19,16 @@ class RoleController extends Controller
     public function index()
     {
         //
+        $pageStructure=array(
+          array('role','collapse','table'),
+          array('Название','Описание'),
+          array('role_desc','role_name'),
+          array('text','text'),
+        );
+
         return view('roles.index')->with('roles',
-        Role::get());
+        Role::get())->with('pageStructure', $pageStructure);
+
     }
 
     /**

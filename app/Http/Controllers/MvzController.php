@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mvz;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+use App\Mvz;
 
 class MvzController extends Controller
 {
