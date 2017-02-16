@@ -7,10 +7,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Role;
-use App\User;
 
 class RoleController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,10 +56,14 @@ class RoleController extends Controller
             'role_name' => 'required|max:10',
             'role_desc' => 'required|max:30',
         ]);
-        Role::create([
-            'role_name' => $request->role_name,
-            'role_desc' => $request->role_desc,
-        ]);
+
+        if ($request->user()->hasRole('root')) {
+          Role::create([
+              'role_name' => $request->role_name,
+              'role_desc' => $request->role_desc,
+          ]);
+        };
+
         return redirect('/roles');
     }
 
@@ -74,8 +87,8 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         //
-        return view('roles.edit')->with('role',
-        $role);
+        return view('roles.edit')
+          ->with('role', $role);
     }
 
     /**
@@ -92,23 +105,30 @@ class RoleController extends Controller
             'role_name' => 'required|max:10',
             'role_desc' => 'required|max:30',
         ]);
-        $role->update([
-            'role_name' => $request->role_name,
-            'role_desc' => $request->role_desc,
-        ]);
+
+        if ($request->user()->hasRole('root')) {
+          $role->update([
+              'role_name' => $request->role_name,
+              'role_desc' => $request->role_desc,
+          ]);
+        };
+
         return redirect('/roles');
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy(Request $request, Role $role)
     {
         //
-        $role->delete();
+        if ($request->user()->hasRole('root')) {
+          $role->delete();
+        };
 
         return redirect('/roles');
     }

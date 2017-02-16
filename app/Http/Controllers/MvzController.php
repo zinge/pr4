@@ -10,6 +10,16 @@ use App\Mvz;
 class MvzController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -17,8 +27,8 @@ class MvzController extends Controller
     public function index()
     {
         //
-        return view('mvzs.index')->with('mvzs',
-        Mvz::get());
+        return view('mvzs.index')
+          ->with('mvzs', Mvz::get());
     }
 
     /**
@@ -44,10 +54,12 @@ class MvzController extends Controller
             'mvz_cod' => 'required|numeric|max:21474836470',
             'mvz_desc' => 'required|max:128',
         ]);
-        Mvz::create([
-            'mvz_cod' => $request->mvz_cod,
-            'mvz_desc' => $request->mvz_desc,
-        ]);
+        if ($request->user()->hasRole('mvz_rw','root')) {
+          Mvz::create([
+              'mvz_cod' => $request->mvz_cod,
+              'mvz_desc' => $request->mvz_desc,
+          ]);
+        };
         return redirect('/mvzs');
 
     }
@@ -72,8 +84,8 @@ class MvzController extends Controller
     public function edit(Mvz $mvz)
     {
         //
-        return view('mvzs.edit')->with('mvz',
-        $mvz);
+        return view('mvzs.edit')
+          ->with('mvz', $mvz);
     }
 
     /**
@@ -90,24 +102,28 @@ class MvzController extends Controller
             'mvz_cod' => 'required|integer|max:2147483647',
             'mvz_desc' => 'required|max:128',
         ]);
-        $mvz->update([
-            'mvz_cod'=>$request->mvz_cod,
-            'mvz_desc'=>$request->mvz_desc,
-            ]);
+        if ($request->user()->hasRole('mvz_rw','root')) {
+          $mvz->update([
+              'mvz_cod'=>$request->mvz_cod,
+              'mvz_desc'=>$request->mvz_desc,
+          ]);
+        };
         return redirect('/mvzs');
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Mvz  $mvz
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mvz $mvz)
+    public function destroy(Request $request, Mvz $mvz)
     {
         //
-        $mvz->delete();
-
+        if ($request->user()->hasRole('mvz_rw','root')) {
+          $mvz->delete();
+        };
         return redirect('/mvzs');
     }
 }
