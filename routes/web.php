@@ -31,4 +31,6 @@ Route::get('/role/{role}/edit', 'RoleController@edit');
 Route::delete('/role/{role}', 'RoleController@destroy');
 Route::put('/role/{role}', 'RoleController@update');
 
-
+Route::get('/rolemembers', 'RolememberController@index');
+Route::post('/rolemember', 'RolememberController@store');
+Route::delete('rolemember/{rolemember}', 'RolememberController@destroy');
