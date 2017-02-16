@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\Rolemember;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class RolememberController extends Controller
@@ -25,8 +28,21 @@ class RolememberController extends Controller
     public function index()
     {
         //
-        $roleRules = ;
-        dd($roleRules);
+        $rolemembersQuery = Rolemember::orderBy('id')
+          ->join('users', 'users.id', '=', 'rolemembers.user_id')
+          ->join('roles', 'roles.id', '=', 'rolemembers.role_id')
+          ->select(
+             'rolemembers.*',
+             'roles.role_name',
+             'roles.role_desc',
+             'users.name')
+          ->get();
+
+        return view('rolemembers.index')
+          ->with('rolemembers', $rolemembersQuery)
+          ->with('users', User::get())
+          ->with('roles', Role::get());
+
     }
 
     /**
@@ -48,6 +64,17 @@ class RolememberController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'user_id' => 'required|numeric',
+            'role_id' => 'required|numeric',
+        ]);
+        if ($request->user()->hasRole('root')) {
+          Rolemember::create([
+              'user_id' => $request->user_id,
+              'role_id' => $request->role_id,
+          ]);
+        };
+        return redirect('/rolemembers');
     }
 
     /**
@@ -87,11 +114,17 @@ class RolememberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Rolemember  $rolemember
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rolemember $rolemember)
+    public function destroy(Request $request, Rolemember $rolemember)
     {
         //
+        if ($request->user()->hasRole('root')) {
+          $rolemember->delete();
+        };
+
+        return redirect('/rolemembers');
     }
 }

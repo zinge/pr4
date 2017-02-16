@@ -20,7 +20,7 @@
                     <!-- display validation errors -->
                     @include('common.errors')
 
-                    <form action="{{ url('rolemeber') }}" method="post" class="form-horizontal">
+                    <form action="{{ url('rolemember') }}" method="post" class="form-horizontal">
                         {{ csrf_field() }}
                         <div class="form-group row">
                             <label for="rolemember-user_id" class="col-form-label">пользователи:</label>
