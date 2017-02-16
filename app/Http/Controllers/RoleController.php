@@ -43,6 +43,15 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'role_name' => 'required|max:10',
+            'role_desc' => 'required|max:30',
+        ]);
+        Role::create([
+            'role_name' => $request->role_name,
+            'role_desc' => $request->role_desc,
+        ]);
+        return redirect('/roles');
     }
 
     /**
@@ -79,6 +88,15 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         //
+        $this->validate($request, [
+            'role_name' => 'required|max:10',
+            'role_desc' => 'required|max:30',
+        ]);
+        $role->update([
+            'role_name' => $request->role_name,
+            'role_desc' => $request->role_desc,
+        ]);
+        return redirect('/roles');
     }
 
     /**
@@ -90,5 +108,8 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         //
+        $role->delete();
+
+        return redirect('/roles');
     }
 }

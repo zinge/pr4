@@ -13,14 +13,12 @@ class roleSeed extends Seeder
     {
 
         DB::table('users')->insert([
-            'id' => '1',
             'name' => 'zinge',
             'email' => 'zinge@localhost',
             'password' => bcrypt('P@ssw0rd')
         ]);
 
         DB::table('roles')->insert([
-            'id' => '1',
             'role_name' => 'root',
             'role_desc' => 'Defaul SU role'
         ]);
@@ -31,7 +29,6 @@ class roleSeed extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'id' => '2',
             'role_name' => 'mvz_rw',
             'role_desc' => 'MVZs RW rights'
         ]);
