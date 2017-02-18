@@ -42,3 +42,4 @@ Route::get('/address/{address}/edit', 'AddressController@edit');
 Route::delete('/address/{address}', 'AddressController@destroy');
 Route::put('/address/{address}', 'AddressController@update');
 
+Route::resource('phone', 'PhoneController');

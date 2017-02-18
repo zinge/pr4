@@ -31,7 +31,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ url('/mvzs') }}">МВЗ</a></li>
                         <li><a href="{{ url('/addresses') }}">Адреса</a></li>
-                        <li><a href="{{ url('/phones') }}">Телефоны</a></li>
+                        <li><a href="{{ url('/phone') }}">Телефоны</a></li>
                         <li><a href="{{ url('/equiptypes') }}">Типы оборудования</a></li>
                         <li><a href="{{ url('/coworkers') }}">Сотрудники</a></li>
                         <li><a href="{{ url('/phoneowners') }}">Телефоны(владельцы)</a></li>
