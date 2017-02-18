@@ -34,3 +34,11 @@ Route::put('/role/{role}', 'RoleController@update');
 Route::get('/rolemembers', 'RolememberController@index');
 Route::post('/rolemember', 'RolememberController@store');
 Route::delete('rolemember/{rolemember}', 'RolememberController@destroy');
+
+
+Route::get('/addresses',  'AddressController@index');
+Route::post('/address',  'AddressController@store');
+Route::get('/address/{address}/edit', 'AddressController@edit');
+Route::delete('/address/{address}', 'AddressController@destroy');
+Route::put('/address/{address}', 'AddressController@update');
+
