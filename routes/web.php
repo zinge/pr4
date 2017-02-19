@@ -44,3 +44,4 @@ Route::put('/address/{address}', 'AddressController@update');
 
 Route::resource('phone', 'PhoneController');
 Route::resource('equiptype', 'EquiptypeController');
+Route::resource('coworker', 'CoworkerController');
