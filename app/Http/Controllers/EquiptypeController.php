@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Http\Request;
+use App\Equiptype;
 use App\Http\Controllers\Controller;
 
-use App\Role;
+use Illuminate\Http\Request;
 
-class RoleController extends Controller
+
+class EquiptypeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -27,9 +22,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
-        return view('roles.index')
-          ->with('roles', Role::get());
+        /**/
+        return view('equiptype.index')
+          ->with('equiptypes', Equiptype::get());
 
     }
 
@@ -53,27 +48,23 @@ class RoleController extends Controller
     {
         //
         $this->validate($request, [
-            'role_name' => 'required|max:20',
-            'role_desc' => 'required|max:30',
+            'equiptype_desc' => 'required|max:56',
         ]);
-
-        if ($request->user()->hasRole('root')) {
-          Role::create([
-              'role_name' => $request->role_name,
-              'role_desc' => $request->role_desc,
+        if ($request->user()->hasRole('equiptype_rw','root')) {
+          Equiptype::create([
+              'equiptype_desc' => $request->equiptype_desc,
           ]);
         };
-
-        return redirect('/roles');
+        return redirect('/equiptype');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  \App\Equiptype  $equiptype
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show(Equiptype $equiptype)
     {
         //
     }
@@ -81,55 +72,51 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  \App\Equiptype  $equiptype
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit(Equiptype $equiptype)
     {
         //
-        return view('roles.edit')
-          ->with('role', $role);
+        return view('equiptype.edit')
+          ->with('equiptype', $equiptype);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Role  $role
+     * @param  \App\Equiptype  $equiptype
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Equiptype $equiptype)
     {
         //
         $this->validate($request, [
-            'role_name' => 'required|max:20',
-            'role_desc' => 'required|max:30',
+            'equiptype_desc' => 'required|max:56',
         ]);
-
-        if ($request->user()->hasRole('root')) {
-          $role->update([
-              'role_name' => $request->role_name,
-              'role_desc' => $request->role_desc,
+        if ($request->user()->hasRole('equiptype_rw','root')) {
+          $equiptype->update([
+              'equiptype_desc' => $request->equiptype_desc,
           ]);
         };
-
-        return redirect('/roles');
+        return redirect('/equiptype');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Role  $role
+     * @param  \App\Equiptype  $equiptype
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Role $role)
+    public function destroy(Request $request, Equiptype $equiptype)
     {
         //
-        if ($request->user()->hasRole('root')) {
-          $role->delete();
+        if ($request->user()->hasRole('equiptype_rw','root')) {
+          $equiptype->delete();
         };
+        return redirect('/equiptype');
 
-        return redirect('/roles');
     }
 }

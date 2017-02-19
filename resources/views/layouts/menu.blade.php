@@ -32,7 +32,7 @@
                         <li><a href="{{ url('/mvzs') }}">МВЗ</a></li>
                         <li><a href="{{ url('/addresses') }}">Адреса</a></li>
                         <li><a href="{{ url('/phone') }}">Телефоны</a></li>
-                        <li><a href="{{ url('/equiptypes') }}">Типы оборудования</a></li>
+                        <li><a href="{{ url('/equiptype') }}">Типы оборудования</a></li>
                         <li><a href="{{ url('/coworkers') }}">Сотрудники</a></li>
                         <li><a href="{{ url('/phoneowners') }}">Телефоны(владельцы)</a></li>
                         <li><a href="{{ url('/equips') }}">Оборудование</a></li>
