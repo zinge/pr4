@@ -50,9 +50,9 @@ class PhoneController extends Controller
           //  'macaddr' => 'max:16',
         ]);
 
-        if (!$request->has('ats')){
-            $ats = false;
-        }else{
+        $ats = false;
+
+        if ($request->has('ats')){
             $ats = true;
         };
 
@@ -65,7 +65,6 @@ class PhoneController extends Controller
         };
 
         return redirect('/phone');
-        //return dd($request);
     }
 
     /**
@@ -88,6 +87,8 @@ class PhoneController extends Controller
     public function edit(Phone $phone)
     {
         //
+        return view('phone.edit')
+          ->with('phone', $phone);
     }
 
     /**
@@ -99,17 +100,42 @@ class PhoneController extends Controller
      */
     public function update(Request $request, Phone $phone)
     {
-        //
+        /**/
+        $this->validate($request, [
+            'num' => 'required|numeric|max:21474836470',
+          //  'macaddr' => 'max:16',
+        ]);
+
+        $ats = false;
+
+        if ($request->has('ats')){
+            $ats = true;
+        };
+
+        if ($request->user()->hasRole('phone_rw','root')) {
+          $phone->update([
+              'num' => $request->num,
+              'ats' => $ats,
+              'macaddr' => $request->macaddr,
+          ]);
+        };
+
+        return redirect('/phone');
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Phone  $phone
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Phone $phone)
+    public function destroy(Request $request, Phone $phone)
     {
         //
+        if ($request->user()->hasRole('phone_rw','root')) {
+          $phone->delete();
+        };
+        return redirect('/phone');
     }
 }
