@@ -52,7 +52,7 @@ class AddressController extends Controller
             'city' => 'required|max:128',
             'streethouse' => 'required|max:128',
         ]);
-        if ($request->user()->hasRole('address_rw','root')) {
+        if ($request->user()->hasRole(['address_rw','root'])) {
           Address::create([
               'city' => $request->city,
               'streethouse' => $request->streethouse,
@@ -99,7 +99,7 @@ class AddressController extends Controller
           'city' => 'required|max:128',
           'streethouse' => 'required|max:128',
         ]);
-        if ($request->user()->hasRole('address_rw','root')) {
+        if ($request->user()->hasRole(['address_rw','root'])) {
           $address->update([
             'city' => $request->city,
             'streethouse' => $request->streethouse,
@@ -118,7 +118,7 @@ class AddressController extends Controller
     public function destroy(Request $request, Address $address)
     {
         //
-        if ($request->user()->hasRole('address_rw','root')) {
+        if ($request->user()->hasRole(['address_rw','root'])) {
           $address->delete();
         };
         return redirect('/addresses');

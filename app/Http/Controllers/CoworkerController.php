@@ -65,7 +65,7 @@ class CoworkerController extends Controller
           'mvz_id' => 'required|max:10',
           'address_id' => 'required|max:10',
         ]);
-        if ($request->user()->hasRole('coworker_rw','root')) {
+        if ($request->user()->hasRole(['coworker_rw','root'])) {
           Coworker::create([
             'name' => $request->name,
             'secname' => $request->secname,
@@ -120,7 +120,7 @@ class CoworkerController extends Controller
           'mvz_id' => 'required|max:10',
           'address_id' => 'required|max:10',
         ]);
-        if ($request->user()->hasRole('coworker_rw','root')) {
+        if ($request->user()->hasRole(['coworker_rw','root'])) {
           $coworker->update([
             'name' => $request->name,
             'secname' => $request->secname,
@@ -143,7 +143,7 @@ class CoworkerController extends Controller
     public function destroy(Request $request, Coworker $coworker)
     {
         //
-        if ($request->user()->hasRole('coworker_rw','root')) {
+        if ($request->user()->hasRole(['coworker_rw','root'])) {
           $coworker->delete();
         };
 

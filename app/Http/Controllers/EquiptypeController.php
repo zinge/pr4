@@ -50,7 +50,7 @@ class EquiptypeController extends Controller
         $this->validate($request, [
             'equiptype_desc' => 'required|max:56',
         ]);
-        if ($request->user()->hasRole('equiptype_rw','root')) {
+        if ($request->user()->hasRole(['equiptype_rw','root'])) {
           Equiptype::create([
               'equiptype_desc' => $request->equiptype_desc,
           ]);
@@ -95,7 +95,7 @@ class EquiptypeController extends Controller
         $this->validate($request, [
             'equiptype_desc' => 'required|max:56',
         ]);
-        if ($request->user()->hasRole('equiptype_rw','root')) {
+        if ($request->user()->hasRole(['equiptype_rw','root'])) {
           $equiptype->update([
               'equiptype_desc' => $request->equiptype_desc,
           ]);
@@ -113,7 +113,7 @@ class EquiptypeController extends Controller
     public function destroy(Request $request, Equiptype $equiptype)
     {
         //
-        if ($request->user()->hasRole('equiptype_rw','root')) {
+        if ($request->user()->hasRole(['equiptype_rw','root'])) {
           $equiptype->delete();
         };
         return redirect('/equiptype');

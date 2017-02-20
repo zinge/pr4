@@ -56,7 +56,7 @@ class PhoneController extends Controller
             $ats = true;
         };
 
-        if ($request->user()->hasRole('phone_rw','root')) {
+        if ($request->user()->hasRole(['phone_rw','root'])) {
           Phone::create([
               'num' => $request->num,
               'ats' => $ats,
@@ -112,7 +112,7 @@ class PhoneController extends Controller
             $ats = true;
         };
 
-        if ($request->user()->hasRole('phone_rw','root')) {
+        if ($request->user()->hasRole(['phone_rw','root'])) {
           $phone->update([
               'num' => $request->num,
               'ats' => $ats,
@@ -133,7 +133,7 @@ class PhoneController extends Controller
     public function destroy(Request $request, Phone $phone)
     {
         //
-        if ($request->user()->hasRole('phone_rw','root')) {
+        if ($request->user()->hasRole(['phone_rw','root'])) {
           $phone->delete();
         };
         return redirect('/phone');

@@ -57,7 +57,7 @@ class RoleController extends Controller
             'role_desc' => 'required|max:30',
         ]);
 
-        if ($request->user()->hasRole('root')) {
+        if ($request->user()->hasRole(['root'])) {
           Role::create([
               'role_name' => $request->role_name,
               'role_desc' => $request->role_desc,
@@ -106,7 +106,7 @@ class RoleController extends Controller
             'role_desc' => 'required|max:30',
         ]);
 
-        if ($request->user()->hasRole('root')) {
+        if ($request->user()->hasRole(['root'])) {
           $role->update([
               'role_name' => $request->role_name,
               'role_desc' => $request->role_desc,
@@ -126,7 +126,7 @@ class RoleController extends Controller
     public function destroy(Request $request, Role $role)
     {
         //
-        if ($request->user()->hasRole('root')) {
+        if ($request->user()->hasRole(['root'])) {
           $role->delete();
         };
 

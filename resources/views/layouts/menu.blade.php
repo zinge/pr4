@@ -38,7 +38,7 @@
                         <li><a href="{{ url('/equip') }}">Оборудование</a></li>
                     </ul>
                 </li>
-                    @if (Auth::user()->hasRole('root'))
+                    @if (Auth::user()->hasRole(['root']))
                       <ul class="nav navbar-nav">
                           <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Разрешения <span class="caret"></span></a>

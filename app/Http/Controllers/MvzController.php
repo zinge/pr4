@@ -54,7 +54,7 @@ class MvzController extends Controller
             'mvz_cod' => 'required|numeric|max:21474836470',
             'mvz_desc' => 'required|max:128',
         ]);
-        if ($request->user()->hasRole('mvz_rw','root')) {
+        if ($request->user()->hasRole(['mvz_rw','root'])) {
           Mvz::create([
               'mvz_cod' => $request->mvz_cod,
               'mvz_desc' => $request->mvz_desc,
@@ -102,7 +102,7 @@ class MvzController extends Controller
             'mvz_cod' => 'required|integer|max:2147483647',
             'mvz_desc' => 'required|max:128',
         ]);
-        if ($request->user()->hasRole('mvz_rw','root')) {
+        if ($request->user()->hasRole(['mvz_rw','root'])) {
           $mvz->update([
               'mvz_cod'=>$request->mvz_cod,
               'mvz_desc'=>$request->mvz_desc,
@@ -121,7 +121,7 @@ class MvzController extends Controller
     public function destroy(Request $request, Mvz $mvz)
     {
         //
-        if ($request->user()->hasRole('mvz_rw','root')) {
+        if ($request->user()->hasRole(['mvz_rw','root'])) {
           $mvz->delete();
         };
         return redirect('/mvzs');

@@ -40,11 +40,15 @@ class User extends Authenticatable
     }
 
     /*
-    Проверка соответствия заявленных ролей, т.е. запрашивамая роль $check
-    иммется ли в списке делегированных ролей пользователя.
+    Проверка соответствия заявленных ролей, т.е. запрашивамые роли Array $roles
+    имеются ли в списке делегированных ролей пользователя.
     Возвращает bool значение.
     */
-    public function hasRole($check){
-        return $this->user_roles->contains('role_name', $check);
+    public function hasRole($roles){
+      foreach ($roles as $role) {
+        if ($this->user_roles->contains('role_name', $role)) {
+          return true;
+        }
+      }
     }
 }

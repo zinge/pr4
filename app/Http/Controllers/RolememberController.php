@@ -68,7 +68,7 @@ class RolememberController extends Controller
             'user_id' => 'required|numeric',
             'role_id' => 'required|numeric',
         ]);
-        if ($request->user()->hasRole('root')) {
+        if ($request->user()->hasRole(['root'])) {
           Rolemember::create([
               'user_id' => $request->user_id,
               'role_id' => $request->role_id,
@@ -121,7 +121,7 @@ class RolememberController extends Controller
     public function destroy(Request $request, Rolemember $rolemember)
     {
         //
-        if ($request->user()->hasRole('root')) {
+        if ($request->user()->hasRole(['root'])) {
           $rolemember->delete();
         };
 
