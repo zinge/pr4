@@ -13,18 +13,15 @@
                 <th>Отчество</th>
                 <th>МВЗ</th>
                 <th>Адрес</th>
-                <th>&nbsp;</th>
-                <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{{ $coworker->id }}</td>
-                <td>{{ $coworker->secname }}</td>
-                <td>{{ $coworker->name }}</td>
                 <td>{{ $coworker->thirdname }}</td>
-                <td>{{ $coworker->mvz_desc }}</td>
-                <td>{{ $coworker->streethouse}}</td>
+                <td>{{ $coworker->name }}</td>
+                <td>{{ $coworker->secname }}</td>
+                <td>{{ $coworker->find($coworker->id)->mvz->mvz_desc }}</td>
+                <td>{{ $coworker->find($coworker->id)->address->streethouse}}</td>
               </tr>
             </tbody>
           </table>
