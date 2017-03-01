@@ -28,3 +28,4 @@ Route::resource('address',  'AddressController');
 Route::resource('rolemember', 'RolememberController');
 Route::resource('role',  'RoleController');
 Route::resource('equip',  'EquipController');
+Route::resource('fu',  'FuController');

@@ -38,6 +38,16 @@
                         <li><a href="{{ url('/equip') }}">Оборудование</a></li>
                     </ul>
                 </li>
+                    @if (Auth::user()->hasRole(['admins', 'root']))
+                      <ul class="nav navbar-nav">
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Файлы <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="{{ url('/fu') }}">Загрузить</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                    @endif
                     @if (Auth::user()->hasRole(['root']))
                       <ul class="nav navbar-nav">
                           <li class="dropdown">
