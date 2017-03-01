@@ -27,3 +27,4 @@ Route::resource('mvz',  'MvzController');
 Route::resource('address',  'AddressController');
 Route::resource('rolemember', 'RolememberController');
 Route::resource('role',  'RoleController');
+Route::resource('equip',  'EquipController');
