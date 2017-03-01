@@ -38,7 +38,7 @@ class RolememberController extends Controller
              'users.name')
           ->get();
 
-        return view('rolemembers.index')
+        return view('rolemember.index')
           ->with('rolemembers', $rolemembersQuery)
           ->with('users', User::get())
           ->with('roles', Role::get());
@@ -74,7 +74,7 @@ class RolememberController extends Controller
               'role_id' => $request->role_id,
           ]);
         };
-        return redirect('/rolemembers');
+        return redirect('/rolemember');
     }
 
     /**
@@ -125,6 +125,6 @@ class RolememberController extends Controller
           $rolemember->delete();
         };
 
-        return redirect('/rolemembers');
+        return redirect('/rolemember');
     }
 }

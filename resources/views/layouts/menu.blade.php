@@ -29,8 +29,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Справочники <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('/mvzs') }}">МВЗ</a></li>
-                        <li><a href="{{ url('/addresses') }}">Адреса</a></li>
+                        <li><a href="{{ url('/mvz') }}">МВЗ</a></li>
+                        <li><a href="{{ url('/address') }}">Адреса</a></li>
                         <li><a href="{{ url('/phone') }}">Телефоны</a></li>
                         <li><a href="{{ url('/equiptype') }}">Типы оборудования</a></li>
                         <li><a href="{{ url('/coworker') }}">Сотрудники</a></li>
@@ -44,8 +44,8 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Разрешения <span class="caret"></span></a>
                               <ul class="dropdown-menu">
                                 <li><a href="#">Пользователи</a></li>
-                                <li><a href="{{ url('/roles') }}">Роли</a></li>
-                                <li><a href="{{ url('/rolemembers') }}">Права</a></li>
+                                <li><a href="{{ url('/role') }}">Роли</a></li>
+                                <li><a href="{{ url('/rolemember') }}">Права</a></li>
                               </ul>
                           </li>
                       </ul>

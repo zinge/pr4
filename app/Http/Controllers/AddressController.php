@@ -25,7 +25,7 @@ class AddressController extends Controller
     public function index()
     {
         //
-        return view('addresses.index')
+        return view('address.index')
           ->with('addresses', Address::get());
     }
 
@@ -58,7 +58,7 @@ class AddressController extends Controller
               'streethouse' => $request->streethouse,
           ]);
         };
-        return redirect('/addresses');
+        return redirect('/address');
     }
 
     /**
@@ -81,7 +81,7 @@ class AddressController extends Controller
     public function edit(Address $address)
     {
         //
-        return view('addresses.edit')
+        return view('address.edit')
           ->with('address', $address);
     }
 
@@ -105,7 +105,7 @@ class AddressController extends Controller
             'streethouse' => $request->streethouse,
           ]);
         };
-        return redirect('/addresses');
+        return redirect('/address');
     }
 
     /**
@@ -121,6 +121,6 @@ class AddressController extends Controller
         if ($request->user()->hasRole(['address_rw','root'])) {
           $address->delete();
         };
-        return redirect('/addresses');
+        return redirect('/address');
     }
 }

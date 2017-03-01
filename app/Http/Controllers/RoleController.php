@@ -28,7 +28,7 @@ class RoleController extends Controller
     public function index()
     {
         //
-        return view('roles.index')
+        return view('role.index')
           ->with('roles', Role::get());
 
     }
@@ -64,7 +64,7 @@ class RoleController extends Controller
           ]);
         };
 
-        return redirect('/roles');
+        return redirect('/role');
     }
 
     /**
@@ -87,8 +87,8 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         //
-        return view('roles.edit')
-          ->with('role', $role);
+        return view('role.edit')
+          ->with('roles', $role);
     }
 
     /**
@@ -113,7 +113,7 @@ class RoleController extends Controller
           ]);
         };
 
-        return redirect('/roles');
+        return redirect('/role');
     }
 
     /**
@@ -130,6 +130,6 @@ class RoleController extends Controller
           $role->delete();
         };
 
-        return redirect('/roles');
+        return redirect('/role');
     }
 }

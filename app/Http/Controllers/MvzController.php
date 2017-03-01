@@ -27,7 +27,7 @@ class MvzController extends Controller
     public function index()
     {
         //
-        return view('mvzs.index')
+        return view('mvz.index')
           ->with('mvzs', Mvz::get());
     }
 
@@ -60,7 +60,7 @@ class MvzController extends Controller
               'mvz_desc' => $request->mvz_desc,
           ]);
         };
-        return redirect('/mvzs');
+        return redirect('/mvz');
 
     }
 
@@ -84,7 +84,7 @@ class MvzController extends Controller
     public function edit(Mvz $mvz)
     {
         //
-        return view('mvzs.edit')
+        return view('mvz.edit')
           ->with('mvz', $mvz);
     }
 
@@ -108,7 +108,7 @@ class MvzController extends Controller
               'mvz_desc'=>$request->mvz_desc,
           ]);
         };
-        return redirect('/mvzs');
+        return redirect('/mvz');
     }
 
     /**
@@ -124,6 +124,6 @@ class MvzController extends Controller
         if ($request->user()->hasRole(['mvz_rw','root'])) {
           $mvz->delete();
         };
-        return redirect('/mvzs');
+        return redirect('/mvz');
     }
 }
