@@ -16,8 +16,8 @@
             <tbody>
               <tr>
                 <td>{{ $phoneowner->id }}</td>
-                <td class="table-text">{{ $coworkers->find($phoneowner->coworker_id )->secname . " " . $coworkers->find($phoneowner->coworker_id)->name }}</td>
-                <td class="table-text">{{ $phones->find($phoneowner->phone_id )->num }}</td>
+                <td class="table-text">{{ $coworkers->find($phoneowner->coworker_id)->secname . " " . $coworkers->find($phoneowner->coworker_id)->name }}</td>
+                <td class="table-text">{{ $phones->find($phoneowner->phone_id)->num }}</td>
               </tr>
             </tbody>
           </table>

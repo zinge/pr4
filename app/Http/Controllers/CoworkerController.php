@@ -24,17 +24,8 @@ class CoworkerController extends Controller
     public function index()
     {
         //
-        $coworkersQuery = Coworker::orderBy('id')
-          ->join('mvzs', 'mvzs.id', '=', 'coworkers.mvz_id')
-          ->join('addresses', 'addresses.id', '=', 'coworkers.address_id')
-          ->select(
-             'coworkers.*',
-             'addresses.streethouse',
-             'mvzs.mvz_desc')
-          ->get();
-
         return view('coworker.index')
-          ->with('coworkers', $coworkersQuery)
+          ->with('coworkers', Coworker::get())
           ->with('addresses', Address::get())
           ->with('mvzs', Mvz::get());
     }

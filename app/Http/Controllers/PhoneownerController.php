@@ -23,18 +23,8 @@ class PhoneownerController extends Controller
     public function index()
     {
         //
-        $phoneownersQuery = Phoneowner::orderBy('id')
-          ->join('phones', 'phones.id', '=', 'phoneowners.phone_id')
-          ->join('coworkers', 'coworkers.id', '=', 'phoneowners.coworker_id')
-          ->select(
-             'phoneowners.*',
-             'phones.num',
-             'coworkers.name',
-             'coworkers.secname')
-          ->get();
-
         return view('phoneowner.index')
-          ->with('phoneowners', $phoneownersQuery)
+          ->with('phoneowners', Phoneowner::get())
           ->with('phones', Phone::get())
           ->with('coworkers', Coworker::get());
 

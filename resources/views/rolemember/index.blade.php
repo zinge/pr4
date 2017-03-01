@@ -76,8 +76,8 @@
               @foreach ($rolemembers as $rolemember)
                 <tr>
                   <td>{{ $rolemember->id }}</td>
-                  <td>{{ $rolemember->name }}</td>
-                  <td>{{ $rolemember->role_name }}</td>
+                  <td>{{ $rolemember->user->name }}</td>
+                  <td>{{ $rolemember->role->role_name }}</td>
                   <td>
                     <form action="{{url('rolemember/' . $rolemember->id)}}" method="post">
                       {{ csrf_field() }}

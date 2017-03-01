@@ -78,8 +78,8 @@
               @foreach ($phoneowners as $phoneowner)
                 <tr>
                   <td>{{ $phoneowner->id }}</td>
-                  <td>{{ $phoneowner->secname . " " . $phoneowner->name }}</td>
-                  <td>{{ $phoneowner->num }}</td>
+                  <td>{{ $phoneowner->coworker->secname . " " . $phoneowner->coworker->name }}</td>
+                  <td>{{ $phoneowner->phone->num }}</td>
                   <td>
                     <form action="{{url('phoneowner/' . $phoneowner->id)}}" method="post">
                       {{ csrf_field() }}

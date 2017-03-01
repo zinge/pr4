@@ -100,8 +100,8 @@
                   <td>{{ $coworker->secname }}</td>
                   <td>{{ $coworker->name }}</td>
                   <td>{{ $coworker->thirdname }}</td>
-                  <td>{{ $coworker->mvz_desc }}</td>
-                  <td>{{ $coworker->streethouse}}</td>
+                  <td>{{ $coworker->mvz->mvz_desc }}</td>
+                  <td>{{ $coworker->address->streethouse}}</td>
                   <td>
                     <form action="{{url('coworker/' . $coworker->id)}}" method="post">
                       {{ csrf_field() }}

@@ -28,21 +28,10 @@ class RolememberController extends Controller
     public function index()
     {
         //
-        $rolemembersQuery = Rolemember::orderBy('id')
-          ->join('users', 'users.id', '=', 'rolemembers.user_id')
-          ->join('roles', 'roles.id', '=', 'rolemembers.role_id')
-          ->select(
-             'rolemembers.*',
-             'roles.role_name',
-             'roles.role_desc',
-             'users.name')
-          ->get();
-
         return view('rolemember.index')
-          ->with('rolemembers', $rolemembersQuery)
+          ->with('rolemembers', Rolemember::get())
           ->with('users', User::get())
           ->with('roles', Role::get());
-
     }
 
     /**
