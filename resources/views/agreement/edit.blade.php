@@ -9,7 +9,7 @@
             <thead>
               <tr>
                 <th>наименование</th>
-                <th>действует с (ГГ-ММ-ДД)</th>
+                <th>действует с</th>
                 <th>направление</th>
                 <th>описание</th>
               </tr>
@@ -44,7 +44,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="agreement_start" class="col-form-label">действует с (ГГ-ММ-ДД):</label>
+                <label for="agreement_start" class="col-form-label">действует с:</label>
                 <div>
                     <input type="text" name="agreement_start" id="agreement_start" class="form-control" value="{{ $agreement->agreement_start ? $agreement->agreement_start : old('agreement_start') }}">
                 </div>
@@ -60,7 +60,7 @@
             <div class="form-group row">
                 <label for="agreement_desc" class="col-form-label">описание:</label>
                 <div>
-                  <textarea rows="5" name="agreement_desc" id="agreement_desc" class="form-control">{{ trim($agreement->agreement_desc ? $agreement->agreement_desc : old('agreement_desc')) }}</textarea>
+                  <textarea rows="5" name="agreement_desc" id="agreement_desc" class="form-control">{{ $agreement->agreement_desc ? $agreement->agreement_desc : old('agreement_desc') }}</textarea>
                 </div>
             </div>
 
