@@ -41,9 +41,9 @@
                     @if (Auth::user()->hasRole(['admins', 'root']))
                       <ul class="nav navbar-nav">
                           <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Файлы <span class="caret"></span></a>
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Загрузки<span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                <li><a href="{{ url('/fu') }}">Загрузить</a></li>
+                                <li><a href="{{ url('/fu') }}">Файл</a></li>
                               </ul>
                           </li>
                       </ul>
