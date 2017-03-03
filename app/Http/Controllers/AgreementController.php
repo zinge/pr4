@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Agreement;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class AgreementController extends Controller
 {
@@ -43,16 +45,18 @@ class AgreementController extends Controller
     {
         //
         $this->validate($request, [
-          'agreement_name' => 'required|max:255',
+          'agreement_name' => 'required|max:30',
           'agreement_start' => 'required|date',
-          'agreement_vector' => 'required|max:255',
+          'agreement_vector' => 'required|max:30',
+          'agreement_desc' => 'required|max:255',
         ]);
 
-        if($request->user()-hasRole(['dogovor_rw', 'root'])){
+        if($request->user()->hasRole(['dogovor_rw', 'root'])){
           Agreement::create([
             'agreement_name' => $request->agreement_name,
             'agreement_vector' => $request->agreement_vector,
             'agreement_start' => $request->agreement_start,
+            'agreement_desc' => $request->agreement_desc,
           ]);
         };
 
@@ -94,9 +98,10 @@ class AgreementController extends Controller
     {
         //
         $this->validate($request, [
-          'agreement_name' => 'required|max:255',
+          'agreement_name' => 'required|max:30',
           'agreement_start' => 'required|date',
-          'agreement_vector' => 'required|max:255',
+          'agreement_vector' => 'required|max:30',
+          'agreement_desc' => 'required|max:255',
         ]);
 
         if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
@@ -104,6 +109,7 @@ class AgreementController extends Controller
             'agreement_name' => $request->agreement_name,
             'agreement_start' => $request->agreement_start,
             'agreement_vector' => $request->agreement_vector,
+            'agreement_desc' => $request->agreement_desc,
           ]);
         };
 
