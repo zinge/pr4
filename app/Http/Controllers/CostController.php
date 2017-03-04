@@ -56,10 +56,9 @@ class CostController extends Controller
           'service_id' => 'required|numeric',
           'mvz_id' => 'required|numeric',
           'amount' => 'required|numeric',
-          'worth' => 'required',
-          'total_price' => 'required',
+          'worth' => array('required', 'regex:/^\d{1,10}(,|.)\d{2}$/'),
+          'total_price' => array('required', 'regex:/^\d{1,10}(,|.)\d{2}$/'),
         ]);
-        //|numeric|regex:(^\d{1,10})((\,|\.)(\d{2}$)|$)
 
         $pattern='/(^\d{1,10}),(\d{2}$)/';
 
@@ -126,14 +125,29 @@ class CostController extends Controller
     public function update(Request $request, Cost $cost)
     {
         //
+        $validate_pattern = '/^\d{1,10}(,|.)\d{2}$/';
         $this->validate($request, [
           'agreement_id' => 'required|numeric',
           'service_id' => 'required|numeric',
           'mvz_id' => 'required|numeric',
           'amount' => 'required|numeric',
-          'worth' => 'required|numeric|regex:/^\d{1,10},\d{2}$/',
-          'total_price' => 'required|numeric|regex:/^\d{1,10},\d{2}$/',
+          'worth' => array('required', 'regex:/^\d{1,10}(,|.)\d{2}$/'),
+          'total_price' => array('required', 'regex:/^\d{1,10}(,|.)\d{2}$/'),
         ]);
+
+        $pattern = '/(^\d{1,10}),(\d{2}$)/';
+
+        if (preg_match($pattern, $request->worth)) {
+          $worth = preg_replace('/(^\d{1,10}),(\d{2}$)/', '$1.$2', $request->worth);
+        } else {
+          $worth = $request->worth;
+        };
+
+        if (preg_match($pattern, $request->total_price)) {
+          $total_price = preg_replace('/(^\d{1,10}),(\d{2}$)/', '$1.$2', $request->total_price);
+        } else {
+          $total_price = $request->total_price;
+        };
 
         if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
           $cost->update([
@@ -141,8 +155,8 @@ class CostController extends Controller
             'service_id' => $request->service_id,
             'mvz_id' => $request->mvz_id,
             'amount' => $request->amount,
-            'worth' => $request->worth,
-            'total_price' => $request->total_price,
+            'worth' => $worth,
+            'total_price' => $total_price,
           ]);
         };
 

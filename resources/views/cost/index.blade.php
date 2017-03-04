@@ -1,42 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+  <div class="container">
     <button class="btn btn-primary"
-          role="button"
-          data-toggle="collapse"
-          href="#costAddForm"
-          aria-expanded="false"
-          aria-controls="costAddForm">
-          Добавить элемент договора
+      role="button"
+      data-toggle="collapse"
+      href="#costAddForm"
+      aria-expanded="false"
+      aria-controls="costAddForm">
+      Добавить элемент договора
     </button>
     <div class="collapse" id="costAddForm">
-        <div class="well">
-            <div class="panel">
-                <div class="panel-heading">
-                     Укажите параметры нового элемента
+      <div class="well">
+        <div class="panel">
+          <div class="panel-heading">
+            Укажите параметры нового элемента
+          </div>
+
+          <div class="panel-body">
+            <!-- display validation errors -->
+            @include('common.errors')
+
+            <form action="{{ url('cost') }}" method="post" class="form-horizontal">
+              {{ csrf_field() }}
+
+              <div class="form-group row">
+                <label for="agreement_id" class="col-form-label">Договор:</label>
+                <div>
+                  <select multiple class="form-control" name="agreement_id" id="agreement_id">
+                    @if (count($agreements) > 0)
+                      @foreach ($agreements as $agreement)
+                        <option value="{{ $agreement->id }}"> {{ $agreement->agreement_name . " (" . $agreement->agreement_vector . " " . $agreement->agreement_start . ")"}} </option>
+                      @endforeach
+                    @endif
+                  </select>
                 </div>
-                <div class="panel-body">
-                    <!-- display validation errors -->
-                    @include('common.errors')
+              </div>
 
-                    <form action="{{ url('cost') }}" method="post" class="form-horizontal">
-                        {{ csrf_field() }}
-
-                        <div class="form-group row">
-                            <label for="agreement_id" class="col-form-label">Договор:</label>
-                            <div>
-                              <select multiple class="form-control" name="agreement_id" id="agreement_id">
-                                @if (count($agreements) > 0)
-                                  @foreach ($agreements as $agreement)
-                                    <option value="{{ $agreement->id }}"> {{ $agreement->agreement_name . " (" . $agreement->agreement_vector . " " . $agreement->agreement_start . ")"}} </option>
-                                  @endforeach
-                                @endif
-                              </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
+              <div class="form-group row">
                             <label for="service_id" class="col-form-label">Сервис:</label>
                             <div>
                               <select multiple class="form-control" name="service_id" id="service_id">
@@ -49,7 +50,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+              <div class="form-group row">
                             <label for="mvz_id" class="col-form-label">МВЗ:</label>
                             <div>
                               <select multiple class="form-control" name="mvz_id" id="mvz_id">
@@ -62,36 +63,36 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+              <div class="form-group row">
                             <label for="amount" class="col-form-label">Ф.О.:</label>
                             <div>
                                 <input type="text" name="amount" id="amount" class="form-control" value="{{ old('amount') }}">
                             </div>
                         </div>
 
-                        <div class="form-group row">
+              <div class="form-group row">
                             <label for="worth" class="col-form-label">Расценка:</label>
                             <div>
                                 <input type="text" name="worth" id="worth" class="form-control" value="{{ old('worth') }}">
                             </div>
                         </div>
 
-                        <div class="form-group row">
+              <div class="form-group row">
                             <label for="total_price" class="col-form-label">Итого:</label>
                             <div>
                                 <input type="text" name="total_price" id="total_price" class="form-control" value="{{ old('total_price') }}">
                             </div>
                         </div>
 
-                        <div class="form-group row">
+              <div class="form-group row">
                             <div>
                                 <button type="submit" class="btn btn-primary">Добавить</button>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
 
   @if (count($costs) > 0)
@@ -147,5 +148,5 @@
       </div>
     </div>
   @endif
-</div>
+  </div>
 @endsection
