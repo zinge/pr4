@@ -47,7 +47,7 @@ class PhoneController extends Controller
 
         $this->validate($request, [
             'num' => array('required', 'numeric', 'regex:/^\d{1,11}$/'),
-            'macaddr' => array('required', 'regex:/^(?:[0-9A-Fa-f]{2}[:]?){5}(?:[0-9A-Fa-f]{2}?)$/' );
+            'macaddr' => array('required', 'regex:/^(?:[0-9A-Fa-f]{2}[:]?){5}(?:[0-9A-Fa-f]{2}?)$/'),
         ]);
 
         $ats = false;
@@ -103,7 +103,7 @@ class PhoneController extends Controller
         /**/
         $this->validate($request, [
           'num' => array('required', 'numeric', 'regex:/^\d{1,11}$/'),
-          'macaddr' => array('required', 'regex:/^(?:[0-9A-Fa-f]{2}[:]?){5}(?:[0-9A-Fa-f]{2}?)$/' );
+          'macaddr' => array('required', 'regex:/^(?:[0-9A-Fa-f]{2}[:]?){5}(?:[0-9A-Fa-f]{2}?)$/'),
         ]);
 
         $ats = false;
