@@ -88,7 +88,7 @@ class RoleController extends Controller
     {
         //
         return view('role.edit')
-          ->with('roles', $role);
+          ->with('role', $role);
     }
 
     /**
