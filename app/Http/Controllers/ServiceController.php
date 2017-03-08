@@ -6,7 +6,6 @@ use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-
 class ServiceController extends Controller
 {
     public function __construct()
@@ -50,8 +49,8 @@ class ServiceController extends Controller
           'service_desc' => 'required|max:255',
         ]);
 
-        if($request->user()->hasRole(['dogovor_rw', 'root'])){
-          Service::create([
+        if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
+            Service::create([
             'service_name' => $request->service_name,
             'service_desc' => $request->service_desc,
           ]);
@@ -99,15 +98,14 @@ class ServiceController extends Controller
           'service_desc' => 'required|max:255',
         ]);
 
-        if($request->user()->hasRole(['dogovor_rw', 'root'])){
-          $service->update([
+        if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
+            $service->update([
             'service_name' => $request->service_name,
             'service_desc' => $request->service_desc,
           ]);
         };
 
         return redirect('/service');
-
     }
 
     /**
@@ -120,11 +118,10 @@ class ServiceController extends Controller
     public function destroy(Request $request, Service $service)
     {
         //
-        if($request->user()->hasRole(['dogovor_rw', 'root'])){
-          $service->delete();
+        if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
+            $service->delete();
         };
 
         return redirect('/service');
-
     }
 }

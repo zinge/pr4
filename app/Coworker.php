@@ -16,16 +16,16 @@ class Coworker extends Model
 
     public function mvz()
     {
-      return $this->belongsTo(Mvz::class);
+        return $this->belongsTo(Mvz::class);
     }
 
     public function address()
     {
-      return $this->belongsTo(Address::class);
+        return $this->belongsTo(Address::class);
     }
 
     public function phones()
     {
-      return $this->belongsToMany(Phone::class, 'phoneowners');
+        return $this->belongsToMany(Phone::class, 'phoneowners');
     }
 }

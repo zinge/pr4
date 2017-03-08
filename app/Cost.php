@@ -16,17 +16,16 @@ class Cost extends Model
 
     public function agreement()
     {
-      return $this->belongsTo(Agreement::class);
+        return $this->belongsTo(Agreement::class);
     }
 
     public function service()
     {
-      return $this->belongsTo(Service::class);
+        return $this->belongsTo(Service::class);
     }
 
     public function mvz()
     {
-      return $this->belongsTo(Mvz::class);
+        return $this->belongsTo(Mvz::class);
     }
-
 }

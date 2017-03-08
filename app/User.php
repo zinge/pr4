@@ -7,7 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use App\Role;
 
-
 class User extends Authenticatable
 {
     use Notifiable;
@@ -35,7 +34,8 @@ class User extends Authenticatable
     Получение данных таблицы roles, через таблицу rolemembers
     ВАЖНО: в таблице rolemembers поля должны быть user_id, role_id
     */
-    public function user_roles(){
+    public function user_roles()
+    {
         return $this->belongsToMany(Role::class, 'rolemembers');
     }
 
@@ -44,11 +44,12 @@ class User extends Authenticatable
     имеются ли в списке делегированных ролей пользователя.
     Возвращает bool значение.
     */
-    public function hasRole($roles){
-      foreach ($roles as $role) {
-        if ($this->user_roles->contains('role_name', $role)) {
-          return true;
+    public function hasRole($roles)
+    {
+        foreach ($roles as $role) {
+            if ($this->user_roles->contains('role_name', $role)) {
+                return true;
+            }
         }
-      }
     }
 }

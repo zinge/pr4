@@ -16,14 +16,14 @@ class CreateRolemembersTable extends Migration
         Schema::create('rolemembers', function (Blueprint $table) {
             $table->increments('id');
 
-            if (Schema::hasColumn('users', 'id')){
+            if (Schema::hasColumn('users', 'id')) {
                 $table->integer('user_id');
                 $table->foreign('user_id')
                     ->references('id')
                     ->on('users');
             }
 
-            if (Schema::hasColumn('roles', 'id')){
+            if (Schema::hasColumn('roles', 'id')) {
                 $table->integer('role_id');
                 $table->foreign('role_id')
                     ->references('id')

@@ -7,10 +7,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-
 class AddressController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -53,7 +51,7 @@ class AddressController extends Controller
             'streethouse' => 'required|max:128',
         ]);
         if ($request->user()->hasRole(['address_rw','root'])) {
-          Address::create([
+            Address::create([
               'city' => $request->city,
               'streethouse' => $request->streethouse,
           ]);
@@ -100,7 +98,7 @@ class AddressController extends Controller
           'streethouse' => 'required|max:128',
         ]);
         if ($request->user()->hasRole(['address_rw','root'])) {
-          $address->update([
+            $address->update([
             'city' => $request->city,
             'streethouse' => $request->streethouse,
           ]);
@@ -119,7 +117,7 @@ class AddressController extends Controller
     {
         //
         if ($request->user()->hasRole(['address_rw','root'])) {
-          $address->delete();
+            $address->delete();
         };
         return redirect('/address');
     }

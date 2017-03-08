@@ -57,7 +57,7 @@ class CoworkerController extends Controller
           'address_id' => 'required|max:10',
         ]);
         if ($request->user()->hasRole(['coworker_rw','root'])) {
-          Coworker::create([
+            Coworker::create([
             'name' => $request->name,
             'secname' => $request->secname,
             'thirdname' => $request->thirdname,
@@ -112,7 +112,7 @@ class CoworkerController extends Controller
           'address_id' => 'required|max:10',
         ]);
         if ($request->user()->hasRole(['coworker_rw','root'])) {
-          $coworker->update([
+            $coworker->update([
             'name' => $request->name,
             'secname' => $request->secname,
             'thirdname' => $request->thirdname,
@@ -121,7 +121,6 @@ class CoworkerController extends Controller
           ]);
         };
         return redirect('/coworker');
-
     }
 
     /**
@@ -135,7 +134,7 @@ class CoworkerController extends Controller
     {
         //
         if ($request->user()->hasRole(['coworker_rw','root'])) {
-          $coworker->delete();
+            $coworker->delete();
         };
 
         return redirect('/coworker');

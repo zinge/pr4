@@ -14,12 +14,11 @@ class Phoneowner extends Model
 
     public function coworker()
     {
-      return $this->belongsTo(Coworker::class);
+        return $this->belongsTo(Coworker::class);
     }
 
     public function phone()
     {
-      return $this->belongsTo(Phone::class);
+        return $this->belongsTo(Phone::class);
     }
-
 }

@@ -60,12 +60,12 @@ class EquipController extends Controller
 
         $owned = false;
 
-        if ($request->has('owned')){
+        if ($request->has('owned')) {
             $owned = true;
         };
 
         if ($request->user()->hasRole(['equip_rw','root'])) {
-          Equip::create([
+            Equip::create([
               'invnumber' => $request->invnumber,
               'equipname' => $request->equipname,
               'equipvendor' => $request->equipvendor,
@@ -124,12 +124,12 @@ class EquipController extends Controller
 
         $owned = false;
 
-        if ($request->has('owned')){
+        if ($request->has('owned')) {
             $owned = true;
         };
 
         if ($request->user()->hasRole(['equip_rw','root'])) {
-          $equip->update([
+            $equip->update([
               'invnumber' => $request->invnumber,
               'equipname' => $request->equipname,
               'equipvendor' => $request->equipvendor,
@@ -152,7 +152,7 @@ class EquipController extends Controller
     {
         //
         if ($request->user()->hasRole(['equip_rw','root'])) {
-          $equip->delete();
+            $equip->delete();
         };
         return redirect('/equip');
     }

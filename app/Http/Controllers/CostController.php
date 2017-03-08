@@ -12,7 +12,6 @@ use App\Http\Controllers\Controller;
 
 class CostController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,13 +19,13 @@ class CostController extends Controller
 
     private function replCommas($decimalValue)
     {
-      $pattern='/(^\d{1,10}),(\d{2}$)/';
+        $pattern='/(^\d{1,10}),(\d{2}$)/';
 
-      if (preg_match($pattern, $decimalValue)) {
-        return preg_replace($pattern, '$1.$2', $decimalValue);
-      } else {
-        return $decimalValue;
-      };
+        if (preg_match($pattern, $decimalValue)) {
+            return preg_replace($pattern, '$1.$2', $decimalValue);
+        } else {
+            return $decimalValue;
+        };
     }
 
     /**
@@ -73,7 +72,7 @@ class CostController extends Controller
         ]);
 
         if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
-          Cost::create([
+            Cost::create([
             'agreement_id' => $request->agreement_id,
             'service_id' => $request->service_id,
             'mvz_id' => $request->mvz_id,
@@ -133,7 +132,7 @@ class CostController extends Controller
         ]);
 
         if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
-          $cost->update([
+            $cost->update([
             'agreement_id' => $request->agreement_id,
             'service_id' => $request->service_id,
             'mvz_id' => $request->mvz_id,
@@ -144,7 +143,6 @@ class CostController extends Controller
         };
 
         return redirect('/cost');
-
     }
 
     /**
@@ -158,10 +156,9 @@ class CostController extends Controller
     {
         //
         if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
-          $cost->delete();
+            $cost->delete();
         };
 
         return redirect('/cost');
-
     }
 }

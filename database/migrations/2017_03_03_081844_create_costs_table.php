@@ -17,22 +17,22 @@ class CreateCostsTable extends Migration
             $table->increments('id');
 
             if (Schema::hasColumn('agreements', 'id')) {
-              $table->integer('agreement_id');
-              $table->foreign('agreement_id')
+                $table->integer('agreement_id');
+                $table->foreign('agreement_id')
               ->references('id')
               ->on('agreements');
             }
 
             if (Schema::hasColumn('services', 'id')) {
-              $table->integer('service_id');
-              $table->foreign('service_id')
+                $table->integer('service_id');
+                $table->foreign('service_id')
               ->references('id')
               ->on('services');
             }
 
             if (Schema::hasColumn('mvzs', 'id')) {
-              $table->integer('mvz_id');
-              $table->foreign('mvz_id')
+                $table->integer('mvz_id');
+                $table->foreign('mvz_id')
               ->references('id')
               ->on('mvzs');
             }

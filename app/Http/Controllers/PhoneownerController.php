@@ -27,7 +27,6 @@ class PhoneownerController extends Controller
           ->with('phoneowners', Phoneowner::get())
           ->with('phones', Phone::get())
           ->with('coworkers', Coworker::get());
-
     }
 
     /**
@@ -55,13 +54,12 @@ class PhoneownerController extends Controller
         ]);
 
         if ($request->user()->hasRole(['phoneowner_rw','root'])) {
-          Phoneowner::create([
+            Phoneowner::create([
               'phone_id' => $request->phone_id,
               'coworker_id' => $request->coworker_id,
           ]);
         };
         return redirect('/phoneowner');
-
     }
 
     /**
@@ -88,7 +86,6 @@ class PhoneownerController extends Controller
           ->with('phoneowner', $phoneowner)
           ->with('phones', Phone::get())
           ->with('coworkers', Coworker::get());
-
     }
 
     /**
@@ -106,14 +103,13 @@ class PhoneownerController extends Controller
             'coworker_id' => 'required|numeric',
         ]);
         if ($request->user()->hasRole(['phoneowner_rw','root'])) {
-          $phoneowner->update([
+            $phoneowner->update([
               'phone_id' => $request->phone_id,
               'coworker_id' => $request->coworker_id,
           ]);
         };
 
         return redirect('/phoneowner');
-
     }
 
     /**
@@ -127,7 +123,7 @@ class PhoneownerController extends Controller
     {
         //
         if ($request->user()->hasRole(['phoneowner_rw','root'])) {
-          $phoneowner->delete();
+            $phoneowner->delete();
         };
 
         return redirect('/phoneowner');

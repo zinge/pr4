@@ -6,7 +6,6 @@ use App\Agreement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-
 class AgreementController extends Controller
 {
     public function __construct()
@@ -51,8 +50,8 @@ class AgreementController extends Controller
           'agreement_desc' => 'required|max:255',
         ]);
 
-        if($request->user()->hasRole(['dogovor_rw', 'root'])){
-          Agreement::create([
+        if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
+            Agreement::create([
             'agreement_name' => $request->agreement_name,
             'agreement_vector' => $request->agreement_vector,
             'agreement_start' => $request->agreement_start,
@@ -105,7 +104,7 @@ class AgreementController extends Controller
         ]);
 
         if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
-          $agreement->update([
+            $agreement->update([
             'agreement_name' => $request->agreement_name,
             'agreement_start' => $request->agreement_start,
             'agreement_vector' => $request->agreement_vector,
@@ -127,7 +126,7 @@ class AgreementController extends Controller
     {
         //
         if ($request->user()->hasRole(['dogovor_rw', 'root'])) {
-          $agreement->delete();
+            $agreement->delete();
         };
 
         return redirect('/agreement');

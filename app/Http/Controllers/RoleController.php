@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -30,7 +29,6 @@ class RoleController extends Controller
         //
         return view('role.index')
           ->with('roles', Role::get());
-
     }
 
     /**
@@ -58,7 +56,7 @@ class RoleController extends Controller
         ]);
 
         if ($request->user()->hasRole(['root'])) {
-          Role::create([
+            Role::create([
               'role_name' => $request->role_name,
               'role_desc' => $request->role_desc,
           ]);
@@ -107,7 +105,7 @@ class RoleController extends Controller
         ]);
 
         if ($request->user()->hasRole(['root'])) {
-          $role->update([
+            $role->update([
               'role_name' => $request->role_name,
               'role_desc' => $request->role_desc,
           ]);
@@ -127,7 +125,7 @@ class RoleController extends Controller
     {
         //
         if ($request->user()->hasRole(['root'])) {
-          $role->delete();
+            $role->delete();
         };
 
         return redirect('/role');

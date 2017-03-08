@@ -55,13 +55,12 @@ class MvzController extends Controller
             'mvz_desc' => 'required|max:128',
         ]);
         if ($request->user()->hasRole(['mvz_rw','root'])) {
-          Mvz::create([
+            Mvz::create([
               'mvz_cod' => $request->mvz_cod,
               'mvz_desc' => $request->mvz_desc,
           ]);
         };
         return redirect('/mvz');
-
     }
 
     /**
@@ -103,7 +102,7 @@ class MvzController extends Controller
             'mvz_desc' => 'required|max:128',
         ]);
         if ($request->user()->hasRole(['mvz_rw','root'])) {
-          $mvz->update([
+            $mvz->update([
               'mvz_cod'=>$request->mvz_cod,
               'mvz_desc'=>$request->mvz_desc,
           ]);
@@ -122,7 +121,7 @@ class MvzController extends Controller
     {
         //
         if ($request->user()->hasRole(['mvz_rw','root'])) {
-          $mvz->delete();
+            $mvz->delete();
         };
         return redirect('/mvz');
     }

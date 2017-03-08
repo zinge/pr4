@@ -15,11 +15,11 @@ class Equip extends Model
 
     public function coworker()
     {
-      return $this->belongsTo(Coworker::class);
+        return $this->belongsTo(Coworker::class);
     }
 
     public function equiptype()
     {
-      return $this->belongsTo(Equiptype::class);
+        return $this->belongsTo(Equiptype::class);
     }
 }

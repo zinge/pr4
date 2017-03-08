@@ -9,11 +9,10 @@ use App\Coworker;
 class Address extends Model
 {
     //
-	protected $fillable = ['city','streethouse'];
+    protected $fillable = ['city','streethouse'];
 
-	public function coworkers()
-	{
-		return $this->hasMany(Coworker::class);
-	}
-
+    public function coworkers()
+    {
+        return $this->hasMany(Coworker::class);
+    }
 }

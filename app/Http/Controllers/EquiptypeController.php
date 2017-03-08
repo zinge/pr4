@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-
 class EquiptypeController extends Controller
 {
     public function __construct()
@@ -25,7 +24,6 @@ class EquiptypeController extends Controller
         /**/
         return view('equiptype.index')
           ->with('equiptypes', Equiptype::get());
-
     }
 
     /**
@@ -51,7 +49,7 @@ class EquiptypeController extends Controller
             'equiptype_desc' => 'required|max:56',
         ]);
         if ($request->user()->hasRole(['equiptype_rw','root'])) {
-          Equiptype::create([
+            Equiptype::create([
               'equiptype_desc' => $request->equiptype_desc,
           ]);
         };
@@ -96,7 +94,7 @@ class EquiptypeController extends Controller
             'equiptype_desc' => 'required|max:56',
         ]);
         if ($request->user()->hasRole(['equiptype_rw','root'])) {
-          $equiptype->update([
+            $equiptype->update([
               'equiptype_desc' => $request->equiptype_desc,
           ]);
         };
@@ -114,9 +112,8 @@ class EquiptypeController extends Controller
     {
         //
         if ($request->user()->hasRole(['equiptype_rw','root'])) {
-          $equiptype->delete();
+            $equiptype->delete();
         };
         return redirect('/equiptype');
-
     }
 }

@@ -58,7 +58,7 @@ class RolememberController extends Controller
             'role_id' => 'required|numeric',
         ]);
         if ($request->user()->hasRole(['root'])) {
-          Rolemember::create([
+            Rolemember::create([
               'user_id' => $request->user_id,
               'role_id' => $request->role_id,
           ]);
@@ -111,7 +111,7 @@ class RolememberController extends Controller
     {
         //
         if ($request->user()->hasRole(['root'])) {
-          $rolemember->delete();
+            $rolemember->delete();
         };
 
         return redirect('/rolemember');

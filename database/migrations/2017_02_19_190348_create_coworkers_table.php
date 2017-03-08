@@ -20,8 +20,8 @@ class CreateCoworkersTable extends Migration
             $table->string('thirdname', 30);
 
             if (Schema::hasColumn('addresses', 'id')) {
-              $table->integer('address_id');
-              $table->foreign('address_id')
+                $table->integer('address_id');
+                $table->foreign('address_id')
               ->references('id')
               ->on('addresses');
             }

@@ -13,6 +13,6 @@ class Phone extends Model
 
     public function coworkers()
     {
-      return $this->belongsToMany(Coworker::class, 'phoneowners');
+        return $this->belongsToMany(Coworker::class, 'phoneowners');
     }
 }
