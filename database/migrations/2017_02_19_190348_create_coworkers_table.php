@@ -22,15 +22,15 @@ class CreateCoworkersTable extends Migration
             if (Schema::hasColumn('addresses', 'id')) {
                 $table->integer('address_id');
                 $table->foreign('address_id')
-              ->references('id')
-              ->on('addresses');
+                  ->references('id')
+                  ->on('addresses');
             }
 
             if (Schema::hasColumn('mvzs', 'id')) {
                 $table->integer('mvz_id');
                 $table->foreign('mvz_id')
-                ->references('id')
-                ->on('mvzs');
+                  ->references('id')
+                  ->on('mvzs');
             }
 
             $table->timestamps();
