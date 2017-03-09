@@ -60,6 +60,19 @@
                           </li>
                       </ul>
                     @endif
+                    @if (Auth::user()->hasRole(['admins', 'akt_rw', 'root']))
+                      <ul class="nav navbar-nav">
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Актирование <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="{{ url('/akt') }}">Каталог актов</a></li>
+                                <li><a href="{{ url('/aktunit') }}">Позиции актирования</a></li>
+                                <li><a href="{{ url('/aktapprove') }}">Согласование акта</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                    @endif
+
                     @if (Auth::user()->hasRole(['root']))
                       <ul class="nav navbar-nav">
                           <li class="dropdown">
