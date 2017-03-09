@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Akt;
 use App\Aktunit;
 use App\Cost;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 
 class AktunitController extends Controller
 {
@@ -37,7 +37,8 @@ class AktunitController extends Controller
         //
         return view('aktunit.index')
           ->with('aktunits', Aktunit::get())
-          ->with('costs', Cost::get());
+          ->with('costs', Cost::get())
+          ->with('akts', Akt::get());
     }
 
     /**
@@ -67,7 +68,7 @@ class AktunitController extends Controller
         ]);
 
         if ($request->user()->hasRole(['akt_rw', 'root'])) {
-          Akt::create([
+            Aktunit::create([
             'akt_id' => $request->akt_id,
             'cost_id' => $request->cost_id,
             'aktunit_amount' => $request->aktunit_amount,
@@ -100,7 +101,8 @@ class AktunitController extends Controller
         //
         return view('aktunit.edit')
           ->with('aktunit', $aktunit)
-          ->with('costs', Cost::get());
+          ->with('costs', Cost::get())
+          ->with('akts', Akt::get());
     }
 
     /**
@@ -121,7 +123,7 @@ class AktunitController extends Controller
         ]);
 
         if ($request->user()->hasRole(['akt_rw', 'root'])) {
-          $aktunit->update([
+            $aktunit->update([
             'akt_id' => $request->akt_id,
             'cost_id' => $request->cost_id,
             'aktunit_amount' => $request->aktunit_amount,
@@ -130,7 +132,6 @@ class AktunitController extends Controller
         };
 
         return redirect('/aktunit');
-
     }
 
     /**
@@ -144,10 +145,9 @@ class AktunitController extends Controller
     {
         //
         if ($request->user()->hasRole(['akt_rw', 'root'])) {
-          $aktunit->delete();
+            $aktunit->delete();
         };
 
         return redirect('/aktunit');
-
     }
 }
