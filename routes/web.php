@@ -32,3 +32,4 @@ Route::resource('fu',  'FuController');
 Route::resource('agreement',  'AgreementController');
 Route::resource('service',  'ServiceController');
 Route::resource('cost',  'CostController');
+Route::resource('akt',  'AktController');
