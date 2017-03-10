@@ -34,3 +34,4 @@ Route::resource('service', 'ServiceController');
 Route::resource('cost', 'CostController');
 Route::resource('akt', 'AktController');
 Route::resource('aktunit', 'AktunitController');
+Route::resource('finposition', 'FinpositionController');
