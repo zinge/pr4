@@ -40,50 +40,44 @@
                   </ul>
                 </li>
                 @if (Auth::user()->hasRole(['admins', 'root']))
-                  <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Загрузки<span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="{{ url('/fu') }}">Файл</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Загрузки<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ url('/fu') }}">Файл</a></li>
+                    </ul>
+                  </li>
                 @endif
                 @if (Auth::user()->hasRole(['admins', 'dogovor_rw', 'root']))
-                  <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Договора <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="{{ url('/agreement') }}">Каталог договоров</a></li>
-                        <li><a href="{{ url('/service') }}">Каталог услуг</a></li>
-                        <li><a href="{{ url('/cost') }}">Договора с услугами</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Финансы <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ url('/agreement') }}">Договора</a></li>
+                      <li><a href="{{ url('/service') }}">Сервисы</a></li>
+                      <li><a href="{{ url('/limit') }}">Лимиты</a></li>
+                      <li><a href="{{ url('/finposition') }}">Финпозиции</a></li>
+                      <li><a href="{{ url('/cost') }}">#Договора с услугами</a></li>
+                    </ul>
+                  </li>
                 @endif
                 @if (Auth::user()->hasRole(['admins', 'akt_rw', 'root']))
-                  <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Актирование <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="{{ url('/akt') }}">Каталог актов</a></li>
-                        <li><a href="{{ url('/aktunit') }}">Позиции актирования</a></li>
-                        <li><a href="{{ url('/aktapprove') }}">Согласование акта</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Актирование <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ url('/akt') }}">Каталог актов</a></li>
+                      <li><a href="{{ url('/aktunit') }}">Позиции актирования</a></li>
+                      <li><a href="{{ url('/aktapprove') }}">Согласование акта</a></li>
+                    </ul>
+                  </li>
                 @endif
                 @if (Auth::user()->hasRole(['root']))
-                  <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Разрешения <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Пользователи</a></li>
-                        <li><a href="{{ url('/role') }}">Роли</a></li>
-                        <li><a href="{{ url('/rolemember') }}">Права</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Разрешения <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Пользователи</a></li>
+                      <li><a href="{{ url('/role') }}">Роли</a></li>
+                      <li><a href="{{ url('/rolemember') }}">Права</a></li>
+                    </ul>
+                  </li>
                 @endif
               @endif
             </ul>
