@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Tag;
+use App\Taggable;
 
 class Tele extends Model
 {
@@ -14,6 +15,11 @@ class Tele extends Model
 
   public function tags()
   {
-    return $this->morphToMany('App\Tag', 'taggable');
+    return $this->morphToMany(Tag::class, 'taggable');
+  }
+
+  public function taggables()
+  {
+      return $this->morphMany(Taggable::class, 'taggable');
   }
 }
