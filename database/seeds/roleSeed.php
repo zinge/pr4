@@ -28,16 +28,5 @@ class roleSeed extends Seeder
             'role_id' => '1'
         ]);
 
-        DB::table('roles')->insert([
-            'role_name' => 'mvz_rw',
-            'role_desc' => 'MVZs RW rights'
-        ]);
-
-        DB::table('rolemembers')->insert([
-            'user_id' => '1',
-            'role_id' => '2'
-        ]);
-
-
     }
 }
