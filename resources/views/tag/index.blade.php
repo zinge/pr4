@@ -14,12 +14,14 @@
 
             <form action="{{ url('tag') }}" method="post" class="form-horizontal">
               {{ csrf_field() }}
+
               <div class="form-group row">
                 <label for="name" class="col-form-label">описание:</label>
                 <div>
                   <input type="text" name="name" id="name" class="form-control">
                 </div>
               </div>
+
               <div class="form-group row">
                 <div>
                   <button type="submit" class="btn btn-primary">Добавить</button>

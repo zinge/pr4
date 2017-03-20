@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Taggable;
 use App\Tag;
 use App\Ludi;
+use App\Tele;
 use Illuminate\Http\Request;
 
 class TaggableController extends Controller
@@ -17,10 +18,17 @@ class TaggableController extends Controller
     public function index()
     {
         //
+        ///*
         return view('taggable.index')
           ->with('taggables', Taggable::get())
           ->with('tags', Tag::get())
+          ->with('teles', Tele::get())
           ->with('ludis', Ludi::get());
+          //    */
+          /*
+          $tag = Taggable::find(2);
+          return dd($tag->taggable);
+          */
     }
 
     /**
@@ -47,13 +55,13 @@ class TaggableController extends Controller
         ]);
         */
 
-        $taggable = Tag::find($request->tag_id);
+        $tag = Tag::find($request->tag_id);
 
         if ($request->user()->hasRole(['root'])) {
             Taggable::create([
-              'tag_id' => $taggable->id,
-              'taggable_id' => $request->ludi_id,
-              'taggable_type' => $taggable->name,
+              'tag_id' => $tag->id,
+              'taggable_id' => $request->taggable_id,
+              'taggable_type' => $tag->name,
               'nado' => 'nado',
           ]);
         };
@@ -101,8 +109,12 @@ class TaggableController extends Controller
      * @param  \App\Taggable  $taggable
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Taggable $taggable)
+    public function destroy(Request $request, Taggable $taggable)
     {
         //
+        if ($request->user()->hasRole(['root'])) {
+            $taggable->delete();
+        };
+        return redirect('/taggable');
     }
 }

@@ -20,4 +20,20 @@ class Taggable extends Model
     return $this->morphTo();
   }
 }
+
+class Ludi extends Model
+{
+    public function taggables()
+    {
+        return $this->morphMany(Taggable::class, 'taggable');
+    }
+}
+
+class Tele extends Model
+{
+    public function taggables()
+    {
+        return $this->morphMany(Taggable::class, 'taggable');
+    }
+}
 //http://www.easylaravelbook.com/blog/2015/01/21/creating-polymorphic-relations-in-laravel-5/

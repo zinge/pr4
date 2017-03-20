@@ -70,6 +70,8 @@ class TagController extends Controller
     public function edit(Tag $tag)
     {
         //
+        return view('tag.edit')
+          ->with('tag', $tag);
     }
 
     /**
@@ -82,6 +84,17 @@ class TagController extends Controller
     public function update(Request $request, Tag $tag)
     {
         //
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+        if ($request->user()->hasRole(['root'])) {
+            $tag->update([
+              'name' => $request->name,
+              'nado' => 'nado',
+          ]);
+        };
+        return redirect('/tag');
+
     }
 
     /**
