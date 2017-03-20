@@ -79,6 +79,16 @@
                     </ul>
                   </li>
                 @endif
+                @if (Auth::user()->hasRole(['root']))
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Чтото теги <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ url('/tag') }}">Теги</a></li>
+                      <li><a href="{{ url('/taggable') }}">Связки</a></li>
+                    </ul>
+                  </li>
+                @endif
+
               @endif
             </ul>
             <!-- Right Side Of Navbar -->

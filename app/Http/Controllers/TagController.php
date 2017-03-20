@@ -15,6 +15,8 @@ class TagController extends Controller
     public function index()
     {
         //
+        return view('tag.index')
+          ->with('tags', Tag::get());
     }
 
     /**
@@ -36,6 +38,16 @@ class TagController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+        if ($request->user()->hasRole(['root'])) {
+            Tag::create([
+              'name' => $request->name,
+              'nado' => 'nado',
+          ]);
+        };
+        return redirect('/tag');
     }
 
     /**

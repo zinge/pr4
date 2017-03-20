@@ -28,7 +28,7 @@ Look files database/seeds/roleSeed.php, edit if need, and seed from database
 ```
 composer dump-autoload
 php artisan migrate:refresh
-php artisan db:seed --class roleSeed
+php artisan db:seed
 ```
 
 ## License

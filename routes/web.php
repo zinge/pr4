@@ -35,3 +35,6 @@ Route::resource('cost', 'CostController');
 Route::resource('akt', 'AktController');
 Route::resource('aktunit', 'AktunitController');
 Route::resource('finposition', 'FinpositionController');
+
+Route::resource('tag', 'TagController');
+Route::resource('taggable', 'TaggableController');
