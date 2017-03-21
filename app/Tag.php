@@ -17,6 +17,7 @@ class Tag extends Model
   {
     return $this->morphedByMany(Ludi::class, 'taggable');
   }
+
   public function teles()
   {
     return $this->morphedByMany(Tele::class, 'taggable');

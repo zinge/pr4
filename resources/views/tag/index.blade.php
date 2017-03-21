@@ -24,7 +24,7 @@
 
               <div class="form-group row">
                 <div>
-                  <button type="submit" class="btn btn-primary">Добавить</button>
+                  <button type="submit" class="btn btn-primary"> + + </button>
                 </div>
               </div>
             </form>
@@ -58,7 +58,7 @@
                         {{ csrf_field() }}
                         {{ method_field('delete') }}
                         <button type="submit" id="del-tag-{{$tag->id}}" class="btn btn-danger">
-                          <i class="fa fa-btn fa-trash"></i>Удалить
+                          <i class="fa fa-btn fa-trash"></i> - -
                         </button>
                       </form>
                     </td>
@@ -66,7 +66,7 @@
                       <form action="{{url('tag/' . $tag->id . '/edit')}}" method="get">
                         {{ csrf_field() }}
                         <button type="submit" id="edit-tag-{{$tag->id}}" class="btn btn-primary">
-                          <i class="fa fa-btn fa-edit"></i>Исправить
+                          <i class="fa fa-btn fa-edit"></i> +/- 
                         </button>
                       </form>
                     </td>

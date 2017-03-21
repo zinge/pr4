@@ -20,7 +20,7 @@
                   <input type="text" name="name" id="name" class="form-control">
                 </div>
               </div>
-
+<!--
               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
                 <div class="panel panel-default">
                   @if (count($tags) > 0)
@@ -47,7 +47,7 @@
                   @endif
                 </div>
               </div>
-
+-->
               <div class="form-group row">
                 <label for="tag_id" class="col-form-label">tags:</label>
                 <div>

@@ -20,6 +20,7 @@ class Tele extends Model
 
   public function taggables()
   {
-      return $this->morphMany(Taggable::class, 'taggable');
+    return $this->morphMany(Taggable::class, 'taggable');
   }
+
 }

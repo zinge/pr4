@@ -18,17 +18,18 @@ class TaggableController extends Controller
     public function index()
     {
         //
-        ///*
+        /*
         return view('taggable.index')
           ->with('taggables', Taggable::get())
           ->with('tags', Tag::get())
           ->with('teles', Tele::get())
           ->with('ludis', Ludi::get());
-          //    */
+              */
           /*
-          $tag = Taggable::find(2);
-          return dd($tag->taggable);
+          $tag = Tag::find(3);
+          return dd($tag->teles);
           */
+          
     }
 
     /**
