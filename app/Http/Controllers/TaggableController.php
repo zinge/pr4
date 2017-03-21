@@ -25,10 +25,14 @@ class TaggableController extends Controller
           ->with('teles', Tele::get())
           ->with('ludis', Ludi::get());
               */
-          ///*
+          /*
+          $ludi = Ludi::find(8);
           $tag = Tag::find(7);
-          return dd($tag->ludis);
-          //*/
+          return dd($ludi->tags()->attach($tag, ['nado' => 'nado']));
+          */
+          //$tag = Tag::find(7);
+          //return dd($tag->ludis);
+          return dd(Taggable::get());
 
     }
 
