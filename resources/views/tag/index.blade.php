@@ -16,9 +16,16 @@
               {{ csrf_field() }}
 
               <div class="form-group row">
-                <label for="name" class="col-form-label">описание:</label>
+                <label for="name" class="col-form-label">ключ:</label>
                 <div>
                   <input type="text" name="name" id="name" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="description" class="col-form-label">описание:</label>
+                <div>
+                  <input type="text" name="description" id="description" class="form-control">
                 </div>
               </div>
 
@@ -41,6 +48,7 @@
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>ключ</th>
                   <th>описание</th>
                   <th>надо</th>
                   <th>&nbsp;</th>
@@ -52,6 +60,7 @@
                   <tr>
                     <td>{{ $tag->id }}</td>
                     <td>{{ $tag->name }}</td>
+                    <td>{{ $tag->description }}</td>
                     <td>{{ $tag->nado }}</td>
                     <td>
                       <form action="{{url('tag/' . $tag->id)}}" method="post">
@@ -66,7 +75,7 @@
                       <form action="{{url('tag/' . $tag->id . '/edit')}}" method="get">
                         {{ csrf_field() }}
                         <button type="submit" id="edit-tag-{{$tag->id}}" class="btn btn-primary">
-                          <i class="fa fa-btn fa-edit"></i> +/- 
+                          <i class="fa fa-btn fa-edit"></i> +/-
                         </button>
                       </form>
                     </td>
