@@ -22,4 +22,5 @@ class Ludi extends Model
   {
     return $this->morphMany(Taggable::class, 'taggable');
   }
+
 }
