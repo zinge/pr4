@@ -15,12 +15,14 @@ class Ludi extends Model
 
   public function tags()
   {
-    return $this->morphToMany(Tag::class, 'taggable');
+    return $this->morphToMany(Tag::class, 'taggable')->withTimestamps();
   }
 
+  /*
   public function taggables()
   {
     return $this->morphMany(Taggable::class, 'taggable');
   }
+  */
 
 }

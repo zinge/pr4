@@ -9,17 +9,13 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>ключ</th>
-                <th>описание</th>
-                <th>надо</th>
+                <th>наименование</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>{{ $tag->id }}</td>
                 <td>{{ $tag->name }}</td>
-                <td>{{ $tag->description }}</td>
-                <td>{{ $tag->nado }}</td>
               </tr>
             </tbody>
           </table>
@@ -37,16 +33,9 @@
             {{ csrf_field() }}
 
             <div class="form-group row">
-              <label for="name" class="col-form-label">ключ:</label>
+              <label for="name" class="col-form-label">наименование:</label>
               <div>
                 <input type="text" name="name" id="name" class="form-control">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="description" class="col-form-label">описание:</label>
-              <div>
-                <input type="text" name="description" id="description" class="form-control">
               </div>
             </div>
 

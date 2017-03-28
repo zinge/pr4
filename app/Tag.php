@@ -10,7 +10,7 @@ class Tag extends Model
 {
   //
   protected $fillable = [
-    'name', 'nado'
+    'name'
   ];
 
   public function ludis()
