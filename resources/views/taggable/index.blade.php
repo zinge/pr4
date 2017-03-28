@@ -6,7 +6,6 @@
     <div class="collapse" id="taggableAddForm">
       <div class="well">
         <div class="panel">
-          <div class="panel-heading"></div>
           <div class="panel-body">
             <!-- display validation errors -->
             @include('common.errors')
@@ -14,12 +13,6 @@
             <form action="{{ url('taggable') }}" method="post" class="form-horizontal">
               {{ csrf_field() }}
 
-              <div class="form-group row">
-                <label for="name" class="col-form-label">описание:</label>
-                <div>
-                  <input type="text" name="name" id="name" class="form-control">
-                </div>
-              </div>
 <!--
               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
                 <div class="panel panel-default">
@@ -62,9 +55,9 @@
               </div>
 
               <div class="form-group row">
-                <label for="taggable_id" class="col-form-label">ludis:</label>
+                <label for="ludi_id" class="col-form-label">ludis:</label>
                 <div>
-                  <select multiple class="form-control" name="taggable_id" id="taggable_id">
+                  <select multiple class="form-control" name="ludi_id" id="ludi_id">
                     @if (count($ludis) > 0)
                       @foreach ($ludis as $ludi)
                         <option value="{{ $ludi->id }}"> {{ $ludi->name }} </option>
@@ -75,9 +68,9 @@
               </div>
 
               <div class="form-group row">
-                <label for="taggable_id" class="col-form-label">teles:</label>
+                <label for="tele_id" class="col-form-label">teles:</label>
                 <div>
-                  <select multiple class="form-control" name="taggable_id" id="taggable_id">
+                  <select multiple class="form-control" name="tele_id" id="tele_id">
                     @if (count($teles) > 0)
                       @foreach ($teles as $tele)
                         <option value="{{ $tele->id }}"> {{ $tele->name }} </option>
@@ -86,7 +79,6 @@
                   </select>
                 </div>
               </div>
-
 
               <div class="form-group row">
                 <div>

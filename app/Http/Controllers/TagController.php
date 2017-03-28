@@ -40,13 +40,10 @@ class TagController extends Controller
         //
         $this->validate($request, [
             'name' => 'required',
-            'description' => 'required',
         ]);
         if ($request->user()->hasRole(['root'])) {
             Tag::create([
               'name' => $request->name,
-              'description' => 'ludi',
-              'nado' => 'nado',
           ]);
         };
         return redirect('/tag');
@@ -90,13 +87,10 @@ class TagController extends Controller
         //
         $this->validate($request, [
             'name' => 'required',
-            'description' => 'required',
         ]);
         if ($request->user()->hasRole(['root'])) {
             $tag->update([
               'name' => $request->name,
-              'description' => $request->description,
-              'nado' => 'nado',
           ]);
         };
         return redirect('/tag');
